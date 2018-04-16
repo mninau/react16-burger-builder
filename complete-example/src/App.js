@@ -23,6 +23,10 @@ class App extends Component {
     }
   };
 
+  nameHandler = (event) => {
+    this.setState({ specialSecondName: event.target.value });
+  }
+
   render() {
     return (
       <div className="App">
@@ -36,6 +40,7 @@ class App extends Component {
         <button onClick={this.showMeHandler.bind(this, 'RD2D')}>Show Me</button>
         <Person name={this.state.specialName}/>
         <Person
+          change={this.nameHandler}
           click={this.showMeHandler.bind(this, 'RD2D')}
           name={this.state.specialSecondName} />
       </div>
