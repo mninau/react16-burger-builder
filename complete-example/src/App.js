@@ -10,12 +10,17 @@ class App extends Component {
       { name: 'Darth Sidious' },
     ],
     specialName: 'X',
+    specialSecondName: 'Y',
   };
 
-  showMeHandler = () => {
+  showMeHandler = (newName) => {
     alert('=O');
     // DON'T USE THIS: this.state.specialName = 'Patata';
     this.setState({ specialName: 'C3PO' });
+
+    if (newName) {
+      this.setState({ specialSecondName: newName });
+    }
   };
 
   render() {
@@ -28,8 +33,11 @@ class App extends Component {
         <Person name="Luke"/>
         <Person name={this.state.darkSide[0].name}/>
         <Person name={this.state.darkSide[1].name}/>
-        <button onClick={this.showMeHandler}>Show Me</button>
+        <button onClick={this.showMeHandler.bind(this, 'RD2D')}>Show Me</button>
         <Person name={this.state.specialName}/>
+        <Person
+          click={this.showMeHandler.bind(this, 'RD2D')}
+          name={this.state.specialSecondName} />
       </div>
     );
   }
