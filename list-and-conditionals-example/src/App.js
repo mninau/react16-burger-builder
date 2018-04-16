@@ -24,6 +24,16 @@ class App extends Component {
       color: 'white',
     };
 
+    let persons = null;
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          <Person name={this.state.darkSide[0].name}/>
+          <Person name={this.state.darkSide[1].name}/>
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <h1>Hello world!</h1>
@@ -33,14 +43,7 @@ class App extends Component {
           onClick={this.togglePersonsHandler}>
             Toggle Me
         </button>
-        {
-          this.state.showPersons ?
-            <div>
-              <Person name={this.state.darkSide[0].name}/>
-              <Person name={this.state.darkSide[1].name}/>
-            </div>
-          : null
-        }
+        {persons}
       </div>
     );
   }
