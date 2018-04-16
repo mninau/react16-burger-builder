@@ -13,7 +13,14 @@ class App extends Component {
   };
 
   togglePersonsHandler = () => {
-    this.setState({ showPersons:!this.state.showPersons });
+    this.setState({ showPersons: !this.state.showPersons });
+  }
+
+  deleteHandler = (personIndex) => {
+    // Copy the array
+    const items = [...this.state.darkSide];
+    items.splice(personIndex, 1);
+    this.setState({ darkSide: items });
   }
 
   render() {
@@ -28,8 +35,7 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          <Person name={this.state.darkSide[0].name}/>
-          <Person name={this.state.darkSide[1].name}/>
+          {this.state.darkSide.map((item, index) => <Person click={this.deleteHandler.bind(this, index)} name={item.name}/>)}
         </div>
       );
     }
