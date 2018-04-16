@@ -29,12 +29,12 @@ class App extends Component {
       <div className="App">
         <h1>Hello world!</h1>
         <p>React is working!</p>
+        <button onClick={this.showMeHandler.bind(this, 'RD2D')}>Show Me</button>
         <Person name="Han"/>
         <Person name="Leia">It's a trap!</Person>
         <Person name="Luke"/>
         <Person name={this.state.darkSide[0].name}/>
         <Person name={this.state.darkSide[1].name}/>
-        <button onClick={this.showMeHandler.bind(this, 'RD2D')}>Show Me</button>
         <Person name={this.state.specialName}/>
         <Person
           change={this.nameHandler}
