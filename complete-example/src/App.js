@@ -17,10 +17,7 @@ class App extends Component {
     alert('=O');
     // DON'T USE THIS: this.state.specialName = 'Patata';
     this.setState({ specialName: 'C3PO' });
-
-    if (newName) {
-      this.setState({ specialSecondName: newName });
-    }
+    this.setState({ specialSecondName: newName });
   };
 
   nameHandler = (event) => {
